@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+  <head>
+  
+<script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+  
+    <title>My Restraunt </title>
+
+  </head>
+  <body>
+   
+	<!-- Start of first page: #one -->
+    <div data-role="page" id="one">
+
+	<div role="main" class="ui-content">
+    
+    
+    	<h2>User Login</h2>
+
+           Please fill in the information below.
+		<p><a </a></p>
+        
+		username: <input type="text" id="Username" name="Username"></input>
+		email: <input type="text" id="Email" name="Email"></input>
+		acctype: <input type="text" id="acctype" name="acctype"></input> 
+		password: <input type="Password" id="Password" name="Password"></input>
+		
+     <button id="sendData" class="ui-btn">Send Data to server side</button>
+     
+		
+	</div><!-- /content -->
+		
+
+	<div data-role="footer" data-theme="a">
+		<h4>Page Footer</h4>
+	</div><!-- /footer -->
+</div><!-- /page one -->
+
+<div data-role="page" id="manager" data-theme="a">
+
+
+
+	<div data-role="header">
+
+		<h1>Manager</h1>
+
+	</div><!-- /header -->
+
+
+
+	<div role="main" class="ui-content">
+
+		<h2>manager</h2>
+
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+
+		<p><a href="#one" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to page "one"</a></p>
+
+
+
+	</div><!-- /content -->
+
+
+
+	<div data-role="footer">
+
+		<h4>Page Footer</h4>
+
+	</div><!-- /footer -->
+
+</div><!-- /page manager -->
+
+
+
+
+
+
+
+<div data-role="page" id="cook" data-theme="a">
+
+
+
+	<div data-role="header">
+
+		<h1>cook</h1>
+
+	</div><!-- /header -->
+
+
+
+	<div role="main" class="ui-content">
+
+		<h2>cook</h2>
+
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+
+		<p><a href="#one" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to page "one"</a></p>
+
+
+
+	</div><!-- /content -->
+
+
+
+	<div data-role="footer">
+
+		<h4>Page Footer</h4>
+
+	</div><!-- /footer -->
+
+</div><!-- /page cook -->
+
+
+
+<div data-role="page" id="customer" data-theme="a">
+
+
+
+	<div data-role="header">
+
+		<h1>customer</h1>
+
+	</div><!-- /header -->
+
+
+
+	<div role="main" class="ui-content">
+
+		<h2>customer</h2>
+
+		<p>I have an id of "two" on my page container. I'm the second page container in this multi-page template.</p>
+
+		<p>Notice that the theme is different for this page because we've added a few <code>data-theme</code> swatch assigments here to show off how flexible it is. You can add any content or widget to these pages, but we're keeping these simple.</p>
+
+		<p><a href="#one" data-direction="reverse" class="ui-btn ui-shadow ui-corner-all ui-btn-b">Back to page "one"</a></p>
+
+
+
+	</div><!-- /content -->
+
+
+
+	<div data-role="footer">
+
+		<h4>Page Footer</h4>
+
+	</div><!-- /footer -->
+
+</div><!-- /page customer -->
+
+   
+   
+  <script>
+  
+
+  
+  $("#login").click(function(e) {
+	console.log("clicked");
+
+      var us = $("#username").val();
+	  var em = $("#email").val();
+	  var pw = $("#password").val();
+	  var ac = $("#acctype").val();
+      $.post( "/login", { username: us , password: pw , email: em , acctype: ac})
+      .done(function( data ) {
+            alert( "Data Loaded: " + data );
+			
+			
+	$.mobile.changePage( "#Manager", { transition: "pop",reverse: false, changeHash: false});
+   
+   $.mobile.changePage( "#Customer", { transition: "pop",reverse: false, changeHash: false});
+   
+   $.mobile.changePage( "#Cook", { transition: "pop",reverse: false, changeHash: false});
+      });
+  
+  
+	  
+	  
+	  
+	  app.post('/register page',function(req,res){
+  
+  // get the username from the request.
+  var Username=req.body.Username;
+
+  console.log("User name = "+Username);
+  
+  
+        var mysql = require('mysql')
+        var connection = mysql.createConnection({
+          host     : 'localhost',
+          user     : 'root',
+          password : '',
+          database : 'test'
+        });
+
+        connection.connect()
+
+        connection.query("INSERT INTO `users` (`Username`) VALUES ('"+Username+"');");
+
+        connection.end()
+
+});
+
+  </script>
+
+  
+  
+
+  </body>
+</html>
